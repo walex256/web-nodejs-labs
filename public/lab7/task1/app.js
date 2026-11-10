@@ -4,8 +4,11 @@ const form = document.querySelector("#calc-form");
 const button = form.querySelector("button");
 const output = document.querySelector("#result");
 
+form.noValidate = true;
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  // Показываем подсказку браузера, а ошибку запроса возвращает сервер.
+  form.reportValidity();
   const params = new URLSearchParams(new FormData(form));
 
   button.disabled = true;
