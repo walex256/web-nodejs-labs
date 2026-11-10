@@ -1,0 +1,18 @@
+# docker-compose.local.yml - для локальной разработки
+# Запуск: docker compose -f docker-compose.local.yml up --build -V
+services:
+  backend:
+    build:
+      context: .
+      args:
+        NODE_ENV: development   # ставим и devDependencies (nodemon)
+    # Команда выполняется из /app/backend, как указано в WORKDIR
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Код с хоста — изменения сразу видны в контейнере (nodemon перезапустит сервер)
+      - ./backend:/app/backend
+      - ./public:/app/public
+      # Анонимный том: node_modules берутся из образа, а не из папки на хосте
+      - /app/backend/node_modules

@@ -1,0 +1,187 @@
+/* Общие стили сайта-отчёта по лабораторным работам */
+
+:root {
+    --color-bg: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-primary: #34495e;
+    --color-accent: #3498db;
+    --color-accent-2: #1abc9c;
+    --color-text: #2c3e50;
+    --color-muted: #7f8c8d;
+    --color-border: #e0e4e8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.5;
+}
+
+a {
+    color: var(--color-accent);
+}
+
+.page {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "info"
+        "nav"
+        "main"
+        "footer";
+    gap: 20px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+@media (min-width: 800px) {
+    .page {
+        grid-template-columns: 260px 1fr;
+        grid-template-areas:
+            "header header"
+            "info   nav"
+            "info   main"
+            "footer footer";
+    }
+}
+
+.site-header {
+    grid-area: header;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.site-header h1 {
+    margin: 0 0 6px 0;
+    font-size: 1.5rem;
+}
+
+.site-header p {
+    margin: 0;
+    opacity: 0.85;
+}
+
+.personal-info {
+    grid-area: info;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.personal-info h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-top: 0;
+}
+
+.personal-info dl {
+    margin: 0;
+}
+
+.personal-info dt {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.personal-info dd {
+    margin: 2px 0 0 0;
+}
+
+.progress-block, .scores-block {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+}
+
+.progress-block .value {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--color-accent);
+}
+
+.progress-block .date {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+}
+
+.scores-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+.scores-block li {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+
+nav.site-menu, nav.lab-menu {
+    grid-area: nav;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px 20px;
+}
+
+nav.lab-menu {
+    grid-area: main;
+}
+
+.site-menu h2, .lab-menu h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-top: 0;
+}
+
+.site-menu ul, .lab-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.site-menu li a, .lab-menu li a {
+    display: inline-block;
+    padding: 8px 14px;
+    background: var(--color-bg);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.site-menu li a:hover, .lab-menu li a:hover {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+main.page-main {
+    grid-area: main;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.site-footer {
+    grid-area: footer;
+    text-align: center;
+    color: var(--color-muted);
+    padding: 16px;
+    font-size: 0.9rem;
+}

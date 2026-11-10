@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Задание 1. Калькулятор</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="app">
+    <nav><a href="../">К списку заданий</a></nav>
+    <h1>Калькулятор</h1>
+    <form id="calc-form" class="panel">
+      <label class="field">Число A
+        <input name="a" type="number" step="any" required>
+      </label>
+      <label class="field">Число B
+        <input name="b" type="number" step="any" required>
+      </label>
+      <label class="field">Операция
+        <select name="operation">
+          <option value="add">Сложение (+)</option>
+          <option value="subtract">Вычитание (−)</option>
+          <option value="multiply">Умножение (×)</option>
+          <option value="divide">Деление (÷)</option>
+        </select>
+      </label>
+      <button type="submit">Вычислить</button>
+      <p id="result" class="status" role="status"></p>
+    </form>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

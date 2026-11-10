@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Задание 2. Инициалы и участие в проекте</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="app">
+    <nav><a href="../">К списку заданий</a></nav>
+    <h1>Инициалы и участие в проекте</h1>
+    <form id="profile-form" class="panel">
+      <label class="field">Фамилия
+        <input name="lastname" type="text" autocomplete="family-name" required>
+      </label>
+      <label class="field">Имя
+        <input name="firstname" type="text" autocomplete="given-name" required>
+      </label>
+      <label class="field">Отчество
+        <input name="patronymic" type="text" autocomplete="additional-name" required>
+      </label>
+
+      <fieldset>
+        <legend>Пол</legend>
+        <div class="row">
+          <label><input name="gender" type="radio" value="male"> Мужской</label>
+          <label><input name="gender" type="radio" value="female"> Женский</label>
+        </div>
+      </fieldset>
+
+      <label class="field">Факультет
+        <select name="faculty">
+          <option value="">Выберите факультет</option>
+          <option value="it">Информационных технологий</option>
+          <option value="engineering">Инженерный</option>
+          <option value="economics">Экономический</option>
+        </select>
+      </label>
+
+      <label class="row">
+        <span><input id="participant" type="checkbox"> Участие в проекте</span>
+      </label>
+      <label id="project-field" class="field" hidden>Наименование проекта
+        <input name="projectName" type="text">
+      </label>
+
+      <div class="row">
+        <button type="button" id="initials">Получить инициалы</button>
+        <button type="button" id="project-status">Получить статус участия</button>
+      </div>
+      <p id="result" class="status" role="status"></p>
+    </form>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

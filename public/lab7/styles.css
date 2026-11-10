@@ -1,0 +1,71 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 16px/1.4 system-ui, sans-serif;
+  color: #2c3e50;
+  background: #f4f6f8;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.panel {
+  padding: 1rem 1.2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+}
+
+.panel h2 { margin-top: 0; font-size: 1.1rem; }
+a { color: #216a95; }
+
+.field {
+  display: grid;
+  gap: .3rem;
+  margin-bottom: .8rem;
+}
+
+.field[hidden] { display: none; }
+
+.field input, .field select {
+  width: 100%;
+  padding: .45rem .6rem;
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  font: inherit;
+}
+
+fieldset {
+  margin: 0 0 .8rem;
+  padding: .5rem .8rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1rem;
+  margin-bottom: .8rem;
+}
+
+fieldset .row { margin-bottom: 0; }
+
+button {
+  padding: .5rem 1.1rem;
+  font: inherit;
+  color: #fff;
+  background: #2475a6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover { background: #216a95; }
+button:disabled { background: #596a74; cursor: wait; }
+.status { min-height: 1.4em; margin-bottom: 0; overflow-wrap: anywhere; }
+.status.error { color: #b33224; }
