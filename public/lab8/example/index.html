@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Список пользователей</title>
+  <link rel="stylesheet" href="/lab7/styles.css">
+  <link rel="stylesheet" href="/lab8/styles.css">
+</head>
+<body>
+  <main class="app">
+    <nav><a href="../">К списку заданий</a></nav>
+    <h1>Список пользователей</h1>
+    <form id="user-form" class="panel">
+      <label class="field">Имя
+        <input name="name" minlength="2" maxlength="100" required>
+      </label>
+      <label class="field">Email
+        <input name="email" type="email" maxlength="100" required>
+      </label>
+      <button type="submit">Добавить</button>
+      <p id="status" class="status" role="status"></p>
+    </form>
+    <section class="panel">
+      <h2>Пользователи</h2>
+      <p id="empty">Пока нет пользователей.</p>
+      <ul id="users"></ul>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

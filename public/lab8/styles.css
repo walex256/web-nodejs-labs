@@ -1,0 +1,19 @@
+.panel + .panel { margin-top: 1rem; }
+.panel li { overflow-wrap: anywhere; }
+.panel li + li { margin-top: .4rem; }
+.wide { max-width: 1080px; }
+
+.table-scroll { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: .55rem .65rem; border-bottom: 1px solid #bdc3c7; text-align: left; }
+th { background: #e5eef6; }
+td:nth-child(2), td:nth-child(3), td:nth-child(5) { white-space: nowrap; }
+
+.draw { background: #fff1cb; }
+.first-wins { background: #def3e4; }
+.second-wins { background: #dcecfb; }
+
+.legend { display: flex; flex-wrap: wrap; gap: .4rem; padding: 0; list-style: none; }
+.legend li { padding: .25rem .5rem; border-radius: 4px; }
+.legend li + li { margin-top: 0; }

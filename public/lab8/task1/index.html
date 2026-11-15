@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Инициалы и участие в проекте</title>
+  <link rel="stylesheet" href="/lab7/styles.css">
+  <link rel="stylesheet" href="/lab8/styles.css">
+</head>
+<body>
+  <main class="app">
+    <nav><a href="../">К списку заданий</a></nav>
+    <h1>Инициалы и участие в проекте</h1>
+    <form id="profile-form" class="panel">
+      <label class="field">Фамилия
+        <input name="lastname" autocomplete="family-name" maxlength="50" required>
+      </label>
+      <label class="field">Имя
+        <input name="firstname" autocomplete="given-name" maxlength="50" required>
+      </label>
+      <label class="field">Отчество
+        <input name="patronymic" autocomplete="additional-name" maxlength="50" required>
+      </label>
+      <fieldset>
+        <legend>Пол</legend>
+        <div class="row">
+          <label><input name="gender" type="radio" value="male" required> Мужской</label>
+          <label><input name="gender" type="radio" value="female"> Женский</label>
+        </div>
+      </fieldset>
+      <label class="field">Факультет
+        <select name="faculty" required>
+          <option value="">Выберите факультет</option>
+          <option value="it">Информационных технологий</option>
+          <option value="engineering">Инженерный</option>
+          <option value="economics">Экономический</option>
+        </select>
+      </label>
+      <label class="row">
+        <span><input name="projectParticipant" type="checkbox"> Участие в проекте</span>
+      </label>
+      <label id="project-field" class="field" hidden>Наименование проекта
+        <input name="projectName" type="text" disabled>
+      </label>
+      <div class="row">
+        <button type="button" id="initials">Получить инициалы</button>
+        <button type="button" id="project-status">Получить статус участия</button>
+        <button type="submit">Сохранить</button>
+      </div>
+      <p id="status" class="status" role="status"></p>
+    </form>
+    <section class="panel">
+      <h2>Сохранённые записи</h2>
+      <p id="empty">Пока нет записей.</p>
+      <ul id="records"></ul>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

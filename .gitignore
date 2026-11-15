@@ -10,3 +10,6 @@ npm-debug.log*
 # Файлы IDE
 .idea/
 .vscode/
+/backend/data/lab8/users.json
+/backend/data/lab8/task1.json
+/backend/data/lab8/**/*.tmp
