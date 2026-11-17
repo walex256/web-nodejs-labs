@@ -54,6 +54,7 @@ form.addEventListener("submit", event => {
   form.reportValidity();
   const fields = Object.fromEntries(new FormData(form));
   fields.projectParticipant = checkbox.checked;
+  fields.projectName = checkbox.checked ? project.value : null;
 
   run(status, async () => {
     const record = await postLab8("task1/records", fields);

@@ -31,9 +31,12 @@ export const createRecordSchema = {
       gender: { type: "string", enum: ["male", "female"] },
       faculty: { type: "string", enum: ["it", "engineering", "economics"] },
       projectParticipant: { type: "boolean" },
-      projectName: { type: "string" },
+      projectName: { type: ["string", "null"] },
     },
-    if: { properties: { projectParticipant: { const: true } } },
+    if: {
+      required: ["projectParticipant"],
+      properties: { projectParticipant: { const: true } },
+    },
     then: {
       required: ["projectName"],
       properties: { projectName: { type: "string", pattern: "\\S" } },
