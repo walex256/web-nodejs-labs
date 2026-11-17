@@ -4,7 +4,7 @@ export async function requestLab8(endpoint, options) {
   const data = isJson ? await response.json() : null;
   if (!response.ok) {
     const message = data?.message ?? data?.error ?? "Не удалось выполнить запрос.";
-    throw new Error(`Ошибка ${response.status}: ${message}`);
+    throw Object.assign(new Error(`Ошибка ${response.status}: ${message}`), { status: response.status });
   }
   if (data === null) throw new Error("Не удалось получить ответ сервера.");
   return data;

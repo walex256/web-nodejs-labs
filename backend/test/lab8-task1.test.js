@@ -96,6 +96,18 @@ test("ЛР №8, задание 1: валидация и сохранение а
     await assert.rejects(readFile(path.join(temp, "data/lab8/task1.json")), { code: "ENOENT" });
   });
 
+  await t.test("цифры в любом поле ФИО отклоняются во всех трёх запросах", async () => {
+    for (const field of Object.keys(names)) {
+      for (const digit of ["7", "٧"]) {
+        const invalid = { ...names, [field]: names[field].trim() + digit };
+        assert.equal((await get("makeInitials", invalid)).statusCode, 400);
+        assert.equal((await get("makeProjectStatus", { ...invalid, projectParticipant: "false" })).statusCode, 400);
+        assert.equal((await save({ ...profile, ...invalid })).statusCode, 400);
+      }
+    }
+    assert.deepEqual((await get("records")).json(), []);
+  });
+
   await t.test("POST сохраняет анкету, возвращает 201, GET читает её после перезапуска", async () => {
     const expected = {
       id: 1, lastname: "Иванов", firstname: "иван", patronymic: "иванович",

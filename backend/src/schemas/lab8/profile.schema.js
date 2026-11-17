@@ -1,4 +1,9 @@
-const name = { type: "string", maxLength: 50, pattern: "\\S" };
+const name = {
+  type: "string",
+  maxLength: 50,
+  pattern: "\\S",
+  not: { pattern: "\\p{Nd}" },
+};
 const names = { lastname: name, firstname: name, patronymic: name };
 const nameFields = Object.keys(names);
 

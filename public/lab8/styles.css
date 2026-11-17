@@ -3,6 +3,9 @@
 .panel li + li { margin-top: .4rem; }
 .wide { max-width: 1080px; }
 
+.field-error { color: #a32323; font-size: .9rem; }
+.field input[aria-invalid="true"] { border-color: #a32323; }
+
 .table-scroll { overflow-x: auto; }
 
 table { width: 100%; border-collapse: collapse; }
