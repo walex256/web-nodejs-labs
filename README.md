@@ -45,7 +45,7 @@ API лабораторных работ размещается в `backend/src/r
 
 ## Лабораторная работа №9
 
-Скопируйте `backend/.env.local.example` в `backend/.env.local` и выполните из корня проекта:
+Выполните из корня проекта:
 
 ```sh
 docker compose -f docker-compose.local.yml up --build -V
@@ -60,4 +60,6 @@ Docker Compose и откройте [Adminer на порту 8081](http://localho
 Скрипт можно запускать повторно, он сохраняет изменения каталога.
 
 При запуске Node.js на компьютере используйте `localhost` вместо `db` в `.env.local`.
+Docker Compose использует `backend/.env.local.example` как настройки локальной базы.
+При необходимости значения можно переопределить в `backend/.env.local`.
 На сервере приложения задайте `DATABASE_URL` и импортируйте `backend/sql/lab9.sql` в PostgreSQL.

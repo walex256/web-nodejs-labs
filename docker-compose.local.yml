@@ -9,7 +9,9 @@ services:
     # Команда выполняется из /app/backend, как указано в WORKDIR
     command: npm run dev
     env_file:
-      - ./backend/.env.local
+      - ./backend/.env.local.example
+      - path: ./backend/.env.local
+        required: false
     depends_on:
       db:
         condition: service_healthy
@@ -35,7 +37,7 @@ services:
       - postgres_data_volume:/var/lib/postgresql/data
       - ./backend/sql/lab9.sql:/docker-entrypoint-initdb.d/09-lab9.sql:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U devuser -d devdb"]
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U devuser -d devdb"]
       interval: 2s
       timeout: 3s
       retries: 15
