@@ -8,6 +8,11 @@ services:
         NODE_ENV: development   # ставим и devDependencies (nodemon)
     # Команда выполняется из /app/backend, как указано в WORKDIR
     command: npm run dev
+    env_file:
+      - ./backend/.env.local
+    depends_on:
+      db:
+        condition: service_healthy
     ports:
       - "3000:3000"
     volumes:
@@ -16,3 +21,34 @@ services:
       - ./public:/app/public
       # Анонимный том: node_modules берутся из образа, а не из папки на хосте
       - /app/backend/node_modules
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpass
+      POSTGRES_DB: devdb
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data_volume:/var/lib/postgresql/data
+      - ./backend/sql/lab9.sql:/docker-entrypoint-initdb.d/09-lab9.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devuser -d devdb"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    ports:
+      - "127.0.0.1:${ADMINER_PORT:-8080}:8080"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data_volume:

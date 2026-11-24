@@ -42,3 +42,22 @@ API лабораторных работ размещается в `backend/src/r
 кнопками в заданиях 2 и 3 в этом порядке.
 
 Для проверки API первого задания выполните `npm test` в каталоге `backend`.
+
+## Лабораторная работа №9
+
+Скопируйте `backend/.env.local.example` в `backend/.env.local` и выполните из корня проекта:
+
+```sh
+docker compose -f docker-compose.local.yml up --build -V
+```
+
+Откройте [ЛР №9](http://localhost:3000/lab9/) или [Adminer](http://localhost:8080/).
+Если порт 8080 занят статическими лабораторными, задайте `ADMINER_PORT=8081` в окружении
+Docker Compose и откройте [Adminer на порту 8081](http://localhost:8081/).
+Для Adminer выберите PostgreSQL, сервер `db`, базу `devdb`, логин `devuser` и пароль `devpass`.
+На новом томе `backend/sql/lab9.sql` автоматически создаёт схему `lab9`, таблицу товаров
+и добавляет 15 примеров. На существующем томе выполните этот SQL через Adminer.
+Скрипт можно запускать повторно, он сохраняет изменения каталога.
+
+При запуске Node.js на компьютере используйте `localhost` вместо `db` в `.env.local`.
+На сервере приложения задайте `DATABASE_URL` и импортируйте `backend/sql/lab9.sql` в PostgreSQL.

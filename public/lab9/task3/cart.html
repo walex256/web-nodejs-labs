@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Моя корзина</title>
+  <link rel="stylesheet" href="/lab7/styles.css">
+  <link rel="stylesheet" href="/lab9/styles.css">
+</head>
+<body>
+  <main class="app">
+    <nav><a href="../">К списку заданий</a></nav>
+    <h1>Моя корзина</h1>
+    <p><a href="./">Вернуться в магазин</a></p>
+    <div id="products" class="products"></div>
+    <section class="panel">
+      <p id="total"></p>
+      <div class="row">
+        <button id="check" type="button" disabled>Оформить заказ</button>
+        <button id="buy" type="button" disabled>Купить</button>
+      </div>
+    <p id="status" class="status" role="status"></p>
+    </section>
+  </main>
+  <script type="module" src="cart.js"></script>
+</body>
+</html>

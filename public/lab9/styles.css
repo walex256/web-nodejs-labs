@@ -1,0 +1,7 @@
+.products { display: grid; gap: .75rem; margin-block: 1rem; }
+.product h2 { margin-bottom: .4rem; overflow-wrap: anywhere; }
+.product form { margin-top: .75rem; }
+.product .row { align-items: center; }
+.product button { margin-top: .25rem; }
+.product-status:empty { display: none; }
+.status { white-space: pre-line; }
