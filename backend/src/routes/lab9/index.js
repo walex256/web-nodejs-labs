@@ -1,9 +1,17 @@
 import * as products from "../../services/lab9/product.service.js";
 import * as cartService from "../../services/lab9/cart.service.js";
+import { databaseErrorMessage, ensureCatalog } from "../../services/lab9/init.service.js";
 import { cart, createProduct, productId, search, updateProduct } from "../../schemas/lab9/product.schema.js";
 
 export default async function routes(app) {
   const db = app.pg;
+  app.addHook("preHandler", ensureCatalog(db));
+  app.setErrorHandler((error, request, reply) => {
+    const message = databaseErrorMessage(error);
+    if (!message) throw error;
+    request.log.error({ code: error.code }, "Lab9 PostgreSQL unavailable");
+    return reply.code(503).send({ error: message });
+  });
   const byId = { schema: { params: productId } };
   const notFound = reply => reply.code(404).send({ error: "Product not found" });
 

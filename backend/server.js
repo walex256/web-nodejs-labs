@@ -14,7 +14,10 @@ const fastify = Fastify({
   ajv: { customOptions: { coerceTypes: false } },
 });
 
-fastify.register(fastifyPostgres, { connectionString: process.env.DATABASE_URL });
+fastify.register(fastifyPostgres, {
+  connectionString: process.env.DATABASE_URL,
+  connectionTimeoutMillis: 5000,
+});
 
 fastify.register(fastifyStatic, {
   root: path.join(import.meta.dirname, "..", "public"),
