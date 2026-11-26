@@ -71,7 +71,8 @@ function load() {
 
 lookup.addEventListener("submit", event => {
   event.preventDefault();
-  selectedId = lookup.elements.id.valueAsNumber;
+  const input = lookup.elements.id;
+  selectedId = input.value === "" ? undefined : input.valueAsNumber;
   load();
 });
 document.querySelector("#reset").addEventListener("click", () => {

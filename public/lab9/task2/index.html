@@ -13,7 +13,9 @@
     <h1>Управление товарами</h1>
     <p id="stock" class="panel"></p>
     <form id="lookup" class="panel">
-      <label class="field">ID товара <input name="id" type="number" min="1" max="2147483647" step="1" required></label>
+      <label class="field">ID товара
+        <input name="id" type="number" min="1" max="2147483647" step="1" placeholder="Пустое поле показывает все товары">
+      </label>
       <button>Найти по ID</button>
       <button type="button" id="reset">Показать все</button>
     </form>
