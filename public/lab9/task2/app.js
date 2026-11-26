@@ -75,7 +75,7 @@ lookup.addEventListener("submit", event => {
   selectedId = input.value === "" ? undefined : input.valueAsNumber;
   load();
 });
-document.querySelector("#reset").addEventListener("click", () => {
+document.querySelector("#show-all").addEventListener("click", () => {
   lookup.reset();
   selectedId = undefined;
   load();

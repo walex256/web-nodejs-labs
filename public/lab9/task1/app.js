@@ -21,7 +21,7 @@ form.addEventListener("submit", event => {
   event.preventDefault();
   search();
 });
-document.querySelector("#reset").addEventListener("click", () => {
+document.querySelector("#show-all").addEventListener("click", () => {
   form.reset();
   search();
 });
